@@ -1,0 +1,27 @@
+.burgerIcon {
+	padding: 0;
+	border:none;
+	background-color: transparent;
+	cursor: pointer;
+	&:focus {
+		outline:none;
+	}
+	width: 34px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	text-align: center;
+	span {
+		display: block;
+		height: 4px;
+		@include border-radius(6px);
+		background-color: $navyBlue;
+		margin-bottom: 6px;
+	}
+	h3 {
+		font-size: $fontvsm;
+		color: $navyBlue;
+		font-family: $fontFamSemBold;
+		font-weight: 600;
+	}
+}

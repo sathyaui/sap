@@ -1,0 +1,17 @@
+input {
+	&:focus {
+		outline:none;
+	}
+}
+.form-group {
+	position:relative;
+	margin-bottom: 15px;
+	h4 {
+		font-size: 30px;
+		padding-top: 5px;
+	}
+}
+.form-input-area {
+	position: relative;
+}
+@import './textField.scss';

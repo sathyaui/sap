@@ -1,0 +1,159 @@
+@import '../../../../node_modules/bootstrap/scss/_variables.scss';
+@import '../../../../node_modules/bootstrap/scss/_mixins.scss';
+@import '../../../../node_modules/bootstrap/scss/_normalize.scss';
+@import '../../../../node_modules/bootstrap/scss/_reboot.scss';
+@import '../../../../node_modules/bootstrap/scss/_grid.scss';
+@import '../../../../node_modules/compass-mixins/lib/compass/css3';
+@import '../base/variable.scss';
+@import '../components/typo.scss';
+@import '../components/header.scss';
+@import '../components/footer.scss';
+@import '../components/table.scss';
+@import '../components/burgerIcon.scss';
+@import '../components/Forms/index.scss';
+
+body {
+	background-color: $bodyBg;
+	background-image: url('./../../assets/top-pattern.png');
+	background-position: left top;
+	background-repeat: repeat-x;
+	padding: 10px;
+	font-family: $fontFamBold;
+	font-size: $fontsm;
+	line-height: 1.2;
+	color: $bodyTextColor;
+}
+img {
+	max-width: 100%;
+	vertical-align: middle;
+}
+ol, ul, li {
+	list-style: none;
+}
+ul, ol {
+	margin:0px;
+	padding: 0px;
+}
+.pageContent {
+	min-height: calc(100vh - 66px);
+}
+.container-small {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+// Animation
+.animatedComponent {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 100;
+	background-color: rgba($blue, 0.6);
+	@include transition(all 0.4s linear);
+	opacity: 0;
+	visibility: hidden;
+	&.opened {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.menuOverlay {
+	width: 740px;
+	position: absolute;
+	right: 10px;
+	top: 120px;
+	@include display-flex;
+	@include justify-content(flex-end);
+	@include flex-wrap(wrap);
+	li {
+		@include display-flex;
+		@include justify-content(flex-end);
+		@include flex-direction(column);
+		position:relative;
+		cursor:pointer;
+		@include border-radius(8px);
+		background-image: url('./../../assets/shape1.png');
+		background-size:cover;
+		height: 170px;
+		@include box-shadow(0px 7px 21px rgba(0, 0, 0, 0.25));
+		margin-left: 20px;
+		margin-bottom: 20px;
+		padding: 20px 20px 35px;
+		width: 150px;
+		@include transition(0.3s);
+		h3{
+			color:white;
+		}
+		&:hover{
+			background-image: url('./../../assets/shape.png');
+			h3{
+				color:#7a67c3;
+			}
+		}
+		&:before{
+			content:"";
+			position:absolute;
+			height:100%;
+			width:100%;
+			//background-image: url('./../../assets/shadow.png');
+			background-size:cover;
+			left:0;
+			bottom:0;
+		}
+		img {
+			@include align-self(flex-start);
+			margin-bottom: 10px;
+		}
+	}
+}
+.buttonRow {
+	padding-top: 24px;
+}
+.text-right {
+	text-align: right;
+}
+.purchase-list {
+	padding: 20px 0px;
+	margin-bottom: 30px;
+}
+.linkButton {
+	text-decoration: underline;
+	background-color: transparent;
+	padding: 0px;
+	font-weight: 600;
+	color: $blue;
+	border:none;
+	cursor: pointer;
+	&:hover {
+		text-decoration:none;
+	}
+}
+.iconPosition {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	&.la-calendar {
+		font-size: 24px;
+	}
+	@include transform(translateY(-50%));
+}
+.addon-button {
+	padding-top: 28px;
+}
+.hoverRow {
+	cursor: pointer;
+	@include transition(all 0.2s linear);
+	&:hover {
+		background-color: white;
+	}
+}
+.buttonListRow {
+	padding-bottom: 25px;
+}
+.barcodeWrapper {
+	padding-top: 25px;
+	text-align: center;
+}

@@ -1,0 +1,15 @@
+footer {
+	background-color: white;
+	@include border-radius(6px);
+	background-image: url('./../../assets/footer-bg.png');
+	background-position: left bottom;
+	@include display-flex;
+	@include justify-content(space-between);
+	background-repeat: no-repeat;
+	padding: 15px 20px;
+	> div {
+		&:first-child {
+			color:white;
+		}
+	}
+}

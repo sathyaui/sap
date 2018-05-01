@@ -1,0 +1,14 @@
+.table {
+	&-list {
+		width: 100%;
+		th, td {
+			padding: 15px 10px;
+			border-bottom: 1px solid $borderColor;
+			text-align: left;
+		}
+		th {
+			color: $darkBlue;
+			text-transform: uppercase;
+		}
+	}
+}

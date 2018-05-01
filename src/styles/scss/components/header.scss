@@ -1,0 +1,36 @@
+header {
+	@include display-flex;
+	@include justify-content(flex-end);
+	@include align-items(baseline);
+	padding-bottom: 35px;
+}
+
+nav {
+	background-image: url('./../../assets/nav-bg.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-color: white;
+	@include box-shadow(0px 7px 21px rgba(0, 0, 0, 0.25));
+	width: 235px;
+	padding: 15px 20px;
+	@include border-radius(8px);
+	position: relative;
+	height: 90px;
+	z-index: 101;
+	img {
+		margin-bottom: 12px;
+	}
+}
+.todayDate {
+	color: white;
+	margin-right: 15px;
+	text-align: right;
+	strong {
+		font-size: $fontXl;
+	}
+	p {
+		font-family: $fontStack;
+		padding-bottom: 0px;
+		margin-bottom: 0px;
+	}
+}

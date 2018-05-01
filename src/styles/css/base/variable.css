@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'nunitobold';
+  src: url("./../../assets/fonts/nunito-bold-webfont.eot");
+  src: url("./../../assets/fonts/nunito-bold-webfont.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/nunito-bold-webfont.woff2") format("woff2"), url("./../../assets/fonts/nunito-bold-webfont.woff") format("woff"), url("./../../assets/fonts/nunito-bold-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'nunitolight';
+  src: url("./../../assets/fonts/nunito-light-webfont.eot");
+  src: url("./../../assets/fonts/nunito-light-webfont.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/nunito-light-webfont.woff2") format("woff2"), url("./../../assets/fonts/nunito-light-webfont.woff") format("woff"), url("./../../assets/fonts/nunito-light-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'nunitomedium';
+  src: url("./../../assets/fonts/nunito-medium-webfont.eot");
+  src: url("./../../assets/fonts/nunito-medium-webfont.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/nunito-medium-webfont.woff2") format("woff2"), url("./../../assets/fonts/nunito-medium-webfont.woff") format("woff"), url("./../../assets/fonts/nunito-medium-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'nunitoregular';
+  src: url("./../../assets/fonts/nunito-regular-webfont.eot");
+  src: url("./../../assets/fonts/nunito-regular-webfont.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/nunito-regular-webfont.woff2") format("woff2"), url("./../../assets/fonts/nunito-regular-webfont.woff") format("woff"), url("./../../assets/fonts/nunito-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'nunitosemibold';
+  src: url("./../../assets/fonts/nunito-semibold-webfont.eot");
+  src: url("./../../assets/fonts/nunito-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/nunito-semibold-webfont.woff2") format("woff2"), url("./../../assets/fonts/nunito-semibold-webfont.woff") format("woff"), url("./../../assets/fonts/nunito-semibold-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+/*# sourceMappingURL=variable.css.map */

@@ -1,0 +1,24 @@
+$fontPath:'./../../assets/fonts/';
+
+@import './fonts.scss';
+
+//fonts
+$fontStack:'nunitoregular', sans-serif;
+$fontFamBold:'nunitobold', sans-serif;
+$fontFamSemBold:'nunitosemibold', sans-serif;
+$fontFamMedium:'nunitomedium', sans-serif;
+$fontFamLight:'nunitolight', sans-serif;
+
+// font sizes
+$fontvsm:12px;
+$fontsm:14px;
+$fontmed:16px;
+$fontXl:30px;
+
+//Colors
+$bodyBg:#f5f6fa;
+$bodyTextColor:#8d8b94;
+$blue:#4cb9ec;
+$darkBlue:#5e537d;
+$navyBlue:#7a67c3;
+$borderColor:#e8e7f4;
