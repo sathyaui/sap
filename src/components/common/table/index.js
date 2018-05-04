@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Cart from '../cart';
 
 class Table extends Component {
   render() {
@@ -63,6 +64,7 @@ class Table extends Component {
           </tr>
       	</tbody>
       </table>
+
     );
   }
 }
