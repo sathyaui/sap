@@ -28,7 +28,6 @@ class TagEntry extends React.Component {
 }
 
 function mapStateToProps(state) {
-	console.log(state.tagAddon);
   return {
     purchaseList:state.purchaseTagList.data,
     products:state.product.productLst,

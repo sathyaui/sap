@@ -1,8 +1,8 @@
 import React from 'react';
 
-const TextField = ({id, name, type, onChange, value, error, labelName, readOnly}) => (
+const TextField = ({id, name, type, onChange, value, error, labelName, readOnly, noLabel}) => (
   	<div className="form-group textField">
-		<label htmlFor={id}>{labelName}</label>
+		{!noLabel && <label htmlFor={id}>{labelName}</label>}
 		<input
 			type={type}
 			id={id}
