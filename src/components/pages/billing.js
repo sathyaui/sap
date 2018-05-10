@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import { isEmpty } from 'lodash';
 import { getTagDataById } from "../../Redux/actions/tag";
 
 import Header from '../common/header';
@@ -9,6 +10,8 @@ import Cart from '../common/cart';
 
 import TextField from '../common/FormControls/textField';
 import PrimaryButton from '../common/FormControls/primaryButton';
+
+import List from './Billing/list';
 
 class Billing extends Component {
   constructor(props) {
@@ -29,7 +32,7 @@ class Billing extends Component {
   }
   render() {
     const { tag } = this.state;
-    console.log(this.props.tagData)
+    console.log(this.props.tagData);
     return (
       <div>
       	<Header title="Billing" icon="billing" />
@@ -46,11 +49,11 @@ class Billing extends Component {
                 labelName="" />
             </div>
             <div className="col-3">
-              <PrimaryButton label="Update" onClick={this.onSubmit} />
+              <PrimaryButton label="Submit" onClick={this.onSubmit} />
             </div>
           </div>
-      		<Table />
-          <Cart />
+          {this.props.tagData !== undefined && !isEmpty(this.props.tagData) && <List data={this.props.tagData} />}
+          {this.props.tagData !== undefined && !isEmpty(this.props.tagData) && <Cart />}
       	</div>
       </div>
     );
