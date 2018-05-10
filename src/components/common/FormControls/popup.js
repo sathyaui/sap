@@ -22,7 +22,7 @@ export default class DialogExampleSimple extends React.Component {
     const { onChange, title, label, children, backgroundColor, disabled, customContentStyle} = this.props;
     return (
       <div>
-        <RaisedButton label={label} style={{ backgroundColor }} disabled={disabled} className="button" onClick={this.handleOpen} />
+        <RaisedButton label={label} style={{ backgroundColor }}  disabled={disabled} className="button" onClick={this.handleOpen} />
         <Dialog
     			title={title}
     			actions={actions}
