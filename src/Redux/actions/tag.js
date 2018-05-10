@@ -1,4 +1,4 @@
-import { CREATE_TAG, CREATE_TAG_ADDON, EDIT_TAG_ADDON } from '../types';
+import { CREATE_TAG, CREATE_TAG_ADDON, EDIT_TAG_ADDON, FETCH_TAG_DATA_BY_ID } from '../types';
 import api from '../api';
 
 export const setTag = data => ({
@@ -26,4 +26,12 @@ export const editTagAddon = (id, data) => ({
 
 export const editTagAddonAction = (index, data) => dispatch => {
 	dispatch(editTagAddon(index, data));
-}    
+}
+
+export const setTagId = data => ({
+	type:FETCH_TAG_DATA_BY_ID,
+	data
+});
+
+export const getTagDataById = (id) => dispatch =>
+    api.tagById.fetchTagInfoAction(id).then(data => dispatch(setTagId(data)));    

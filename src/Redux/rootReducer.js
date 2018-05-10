@@ -9,6 +9,7 @@ import purchaseList from "./reducers/purchaseList";
 import purchaseTagList from "./reducers/purchaseTagList";
 import createTag from "./reducers/createTag";
 import tagAddon from "./reducers/tagAddon";
+import tagDataById from "./reducers/tagDataById";
 
 export default combineReducers({
   master,
@@ -19,5 +20,6 @@ export default combineReducers({
   purchaseList,
   purchaseTagList,
   createTag,
-  tagAddon
+  tagAddon,
+  tagDataById
 });

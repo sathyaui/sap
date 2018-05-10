@@ -12,3 +12,4 @@ export const PURCHASE_TAG = 'PURCHASE_TAG';
 export const CREATE_TAG = 'CREATE_TAG';
 export const CREATE_TAG_ADDON = 'CREATE_TAG_ADDON';
 export const EDIT_TAG_ADDON = 'EDIT_TAG_ADDON';
+export const FETCH_TAG_DATA_BY_ID = 'FETCH_TAG_DATA_BY_ID';

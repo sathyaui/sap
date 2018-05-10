@@ -26,5 +26,9 @@ export default {
 	tag: {
 		createTagAction:(data) => 
 			axios.post(apiUrl+'tag', data).then(res => res),
+	},
+	tagById: {
+		fetchTagInfoAction:(id) => 
+			axios.get(apiUrl+'tag/'+id).then(res => res),
 	}
 }
