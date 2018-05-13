@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => (
   <footer>
-  	<div>&copy; 2018.NStore</div>
+  	<div>&copy; Harvest</div>
   	<div>All Rights Reserved.</div>
   </footer>
 )

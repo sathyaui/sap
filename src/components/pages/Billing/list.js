@@ -2,25 +2,35 @@ import React, { Component } from 'react';
 import { map } from 'lodash';
 
 class List extends Component {
+	getTypeName(code) {
+		let typeName = map(this.props.products, el => {
+			if(el.productCode === code) return el.productName;
+		});
+		return typeName;
+	}
 	render() {
 		const { data } = this.props;
 		return <table className="table-list purchase-list">
 			<thead>
 				<tr>
-					<th>Piece</th>
-					<th>Gross Weight</th>
+					<th>Product type</th>
+					<th>Weight</th>
+					<th>Rate</th>
 					<th>Making Charge</th>
 					<th>Wastage</th>
-					<th>New Weight</th>
+					<th style={{"textAlign":"right"}}>Price</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td>	
-						{data.piece}
+						{this.getTypeName(data.productCode)}
 					</td>
 					<td>	
 						{data.grossWeight}
+					</td>
+					<td>	
+						{data.purchaseRate}
 					</td>
 					<td>	
 						{data.makingCharge}
@@ -28,8 +38,8 @@ class List extends Component {
 					<td>	
 						{data.wastage}
 					</td>	
-					<td>	
-						{data.netWeight}
+					<td style={{"textAlign":"right"}}>	
+						{data.purchaseRate}
 					</td>
 				</tr>
 			</tbody>

@@ -20,13 +20,13 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <Router history={history}>
+  <HashRouter history={history}>
   	<Provider store={store}>
     	<MuiThemeProvider>
     		<Route component={Home} />
     	</MuiThemeProvider>
     </Provider>
-  </Router>,
+  </HashRouter>,
   document.getElementById("root")
 );
 registerServiceWorker();

@@ -52,7 +52,7 @@ class Billing extends Component {
               <PrimaryButton label="Submit" onClick={this.onSubmit} />
             </div>
           </div>
-          {this.props.tagData !== undefined && !isEmpty(this.props.tagData) && <List data={this.props.tagData} />}
+          {this.props.tagData !== undefined && !isEmpty(this.props.tagData) && <List data={this.props.tagData} products={this.props.products} />}
           {this.props.tagData !== undefined && !isEmpty(this.props.tagData) && <Cart />}
       	</div>
       </div>
@@ -63,6 +63,7 @@ class Billing extends Component {
 function mapStateToProps(state) {
   return {
     tagData:state.tagDataById.data,
+    products:state.product.productLst,
   }
 }
 
