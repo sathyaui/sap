@@ -94,6 +94,12 @@ ul, ol {
 				color:#7a67c3;
 			}
 		}
+		&.active{
+			background-image: url('./../../assets/shape.png');
+			h3{
+				color:#7a67c3;
+			}
+		}
 		&:before{
 			content:"";
 			position:absolute;

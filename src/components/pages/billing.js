@@ -32,7 +32,6 @@ class Billing extends Component {
   }
   render() {
     const { tag } = this.state;
-    console.log(this.props.tagData);
     return (
       <div>
       	<Header title="Billing" icon="billing" />
