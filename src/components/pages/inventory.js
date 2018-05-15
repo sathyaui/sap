@@ -14,7 +14,9 @@ class Inventory extends Component {
     return (
       <div>
       	<Header title="Inventory" icon="sales" />
+
       	<div className="container">
+        <h1>Inventory</h1>
           {!isEmpty(purchaseList) && <PurchaseList data={purchaseList} dealers={dealers} />}
       	</div>
       </div>
