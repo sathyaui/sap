@@ -14,10 +14,10 @@ class List extends Component {
 			<thead>
 				<tr>
 					<th>Product type</th>
-					<th>Weight</th>
-					<th>Rate</th>
-					<th>Making Charge</th>
-					<th>Wastage</th>
+					<th style={{"textAlign":"right"}}>Weight</th>
+					<th style={{"textAlign":"right"}}>Rate</th>
+					<th style={{"textAlign":"right"}}>Making Charge</th>
+					<th style={{"textAlign":"right"}}>Wastage</th>
 					<th style={{"textAlign":"right"}}>Price</th>
 				</tr>
 			</thead>
@@ -26,16 +26,16 @@ class List extends Component {
 					<td>	
 						{this.getTypeName(data.productCode)}
 					</td>
-					<td>	
+					<td style={{"textAlign":"right"}}>	
 						{data.grossWeight}
 					</td>
-					<td>	
+					<td style={{"textAlign":"right"}}>	
 						{data.purchaseRate}
 					</td>
-					<td>	
+					<td style={{"textAlign":"right"}}>	
 						{data.makingCharge}
 					</td>
-					<td>	
+					<td style={{"textAlign":"right"}}>	
 						{data.wastage}
 					</td>	
 					<td style={{"textAlign":"right"}}>	
