@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { map, groupBy, sumBy, orderBy } from 'lodash';
+import Moment from 'moment';
 
 export default class PurchaseList extends React.Component {
 	constructor(props) {
@@ -38,7 +39,7 @@ export default class PurchaseList extends React.Component {
 						{this.getDealerName(parseInt(grouppedData[el][0].dealerId))}
 					</td>
 					<td>	
-						{grouppedData[el][0].purchaseDate}
+						{Moment(grouppedData[el][0].purchaseDate).format('DD/MM/YYYY')}
 					</td>
 					<td>	
 						{sumBy(grouppedData[el], 'grossWt')}

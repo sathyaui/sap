@@ -36,24 +36,27 @@ class Billing extends Component {
       <div>
       	<Header title="Billing" icon="billing" />
       	<div className="container">
-          <div className="row">
-            <div className="col-4">
-              <TextField
-                id="tag"
-                type="text"
-                name="tag"
-                value={tag}
-                onChange={this.handleChange}
-                noLabel
-                labelName="" />
+          <div className="col-10">
+            <h1>Billings</h1>
+            <div className="row">
+              <div className="col-4">
+                <TextField
+                  id="tag"
+                  type="text"
+                  name="tag"
+                  value={tag}
+                  onChange={this.handleChange}
+                  noLabel
+                  labelName="" />
+              </div>
+              <div className="col-3">
+                <PrimaryButton label="Submit" onClick={this.onSubmit} />
+              </div>
             </div>
-            <div className="col-3">
-              <PrimaryButton label="Submit" onClick={this.onSubmit} />
-            </div>
-          </div>
-          {this.props.tagData !== undefined && !isEmpty(this.props.tagData) && <List data={this.props.tagData} products={this.props.products} />}
-          {this.props.tagData !== undefined && !isEmpty(this.props.tagData) && <Cart />}
-      	</div>
+            {this.props.tagData !== undefined && !isEmpty(this.props.tagData) && <List data={this.props.tagData} products={this.props.products} />}
+            {this.props.tagData !== undefined && !isEmpty(this.props.tagData) && <Cart />}
+        	</div>
+        </div>
       </div>
     );
   }
