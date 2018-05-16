@@ -18,11 +18,6 @@
 				font-family: $fontFamSemBold;
 			}
 		}
-		&:first-child{
-			span{
-				font-family: "Times New Roman", Times, serif;
-			}
-		}
 		span{
 			float: left;
 			color: #5e537d;
@@ -34,7 +29,6 @@
 		strong{
 			color: #5e537d;
 			float: right;
-			font-family: "Times New Roman", Times, serif;
 			font-weight: 100;
 			font-size: 42px;
 			line-height: 48px;

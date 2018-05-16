@@ -12,6 +12,8 @@ import { config } from '../../../theme';
 import List from './list';
 import AddonPopup from './addon';
 
+const PrintTemplate = require ('react-print');
+
 const style = {
   refresh: {
     display: 'inline-block',
@@ -38,6 +40,7 @@ class TagEntry extends React.Component {
 		makingCharge:'',
 		data:[],
 		addPopOpen:false,
+		buttonDisabled:false,
 		errors: {}
 	};
 	componentDidMount() {
@@ -81,6 +84,13 @@ class TagEntry extends React.Component {
 			selectedIndex:''
 		});
 	};
+	printContent = () => {
+		let mywindow = window.open('', 'PRINT', 'height=400,width=600');
+		mywindow.document.write(document.getElementById('printArea').innerHTML);
+		mywindow.print();
+	    mywindow.close();
+	    return true;
+	};
 	addonPopup = () => {
 		this.setState({
 			addPopOpen:!this.state.addPopOpen
@@ -115,9 +125,11 @@ class TagEntry extends React.Component {
 			tagAddon : this.props.tagAddonData
 		};
 		this.props.createTag(reqObj).then(res => {
+			console.log(res);
 			this.setState({
 				barCodeValue:res.data.data.identifier,
-				loading:false
+				loading:false,
+				buttonDisabled:true
 			});
 		})
 	};
@@ -127,7 +139,7 @@ class TagEntry extends React.Component {
 		return errors;
 	};
 	render() {
-		const { productName, grossWeight, netWeight, wastageCharge, makingCharge, productType, purity, purchaseTaxPercent, barCodeValue, productCode, selectedIndex, errors, loading } = this.state;
+		const { productName, grossWeight, netWeight, wastageCharge, makingCharge, productType, purity, purchaseTaxPercent, barCodeValue, productCode, selectedIndex, errors, loading, buttonDisabled } = this.state;
 		const { tagAddonData } = this.props;
 		return (
 			<div className="row">
@@ -219,10 +231,10 @@ class TagEntry extends React.Component {
 	                {!isEmpty(tagAddonData) && <List data={tagAddonData} editItem={this.editItem} />}
 	                <div className="row buttonListRow">
 	                	<div className="col-6">
-		                	<PrimaryButton label="Submit" onClick={this.onSubmit} fluid />
+		                	<PrimaryButton label="Submit" onClick={this.onSubmit} disabled={buttonDisabled} fluid />
 		                </div>
 	                	<div className="col-6">
-		                	<PrimaryButton label="Addon" onClick={this.addonPopup} fluid />
+		                	<PrimaryButton label="Addon" onClick={this.addonPopup} disabled={buttonDisabled} fluid />
 		                </div>
 	                </div>
                 </div>
@@ -235,10 +247,10 @@ class TagEntry extends React.Component {
 				      style={style.refresh}
 				    />}
 	                {barCodeValue !== 0 && <div className="barcodeWrapper">
-	                	<div className="buttonListRow">
+	                	<div className="buttonListRow" id="printArea">
 	                		<Barcode value={barCodeValue} option={{displayValue:false}} />
 	                	</div>
-	                	<PrimaryButton label="Print" onClick={this.addonPopup} />
+	                	<PrimaryButton label="Print" onClick={this.printContent} />
 	                </div>}
                 </div>
                 <AddonPopup open={this.state.addPopOpen} tagAddonData={tagAddonData} requestClose={this.handleClose} productCode={productCode} selectedIndexData={tagAddonData[selectedIndex]} selectedIndex={selectedIndex} addTagAddonAction={this.props.addTagAddonAction} editTagAddonAction={this.props.editTagAddonAction} />

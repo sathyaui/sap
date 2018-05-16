@@ -30,15 +30,19 @@ class Menu extends React.Component {
             </li>
             <li>
             	<img src={IconBilling} alt="Title" />
-            	<h3>Return</h3>
+            	<h3>Customer</h3>
             </li>
             <li>
             	<img src={IconBilling} alt="Title" />
-            	<h3>Stock</h3>
+            	<h3>Operator</h3>
             </li>
             <li>
                 <img src={IconBilling} alt="Title" />
-                <h3>Balance</h3>
+                <h3>Reports</h3>
+            </li>
+            <li>
+                <img src={IconBilling} alt="Title" />
+                <h3>Masters</h3>
             </li>
         </ul>
     }

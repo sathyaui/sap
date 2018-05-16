@@ -1396,7 +1396,7 @@ nav {
     margin-bottom: 12px; }
 
 .todayDate {
-  color: white;
+  color: #8d8b94;
   margin-right: 15px;
   text-align: right; }
   .todayDate strong {
@@ -1441,8 +1441,6 @@ footer {
     .cart-page-total:last-child strong {
       color: #4cb9ec;
       font-family: "nunitosemibold", sans-serif; }
-    .cart-page-total:first-child span {
-      font-family: "Times New Roman", Times, serif; }
     .cart-page-total span {
       float: left;
       color: #5e537d;
@@ -1453,7 +1451,6 @@ footer {
     .cart-page-total strong {
       color: #5e537d;
       float: right;
-      font-family: "Times New Roman", Times, serif;
       font-weight: 100;
       font-size: 42px;
       line-height: 48px; }
@@ -1665,6 +1662,10 @@ ul, ol {
     .menuOverlay li:hover {
       background-image: url("./../../assets/shape.png"); }
       .menuOverlay li:hover h3 {
+        color: #7a67c3; }
+    .menuOverlay li.active {
+      background-image: url("./../../assets/shape.png"); }
+      .menuOverlay li.active h3 {
         color: #7a67c3; }
     .menuOverlay li:before {
       content: "";

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { onlyNumber, dateFormat } from '../../../helpers';
 import TextField from '../../../common/FormControls/textField';
+import PrimaryButton from '../../../common/FormControls/primaryButton';
 
 class Menu extends Component {
     state = {    
@@ -10,6 +11,9 @@ class Menu extends Component {
        this.setState({
           billRefNo: e.target.value.replace(/\D/,''),
         }); 
+    };
+    onSubmit = () => {
+
     };
     render() {
         const {billRefNo} = this.state;
@@ -29,6 +33,7 @@ class Menu extends Component {
                     onChange={this.onChangeNumberOnly.bind(this)}
                  />
               </div>
+              <PrimaryButton label="Submit" onClick={this.onSubmit} />
             </div>
         );
     }

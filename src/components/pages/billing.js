@@ -36,7 +36,7 @@ class Billing extends Component {
       <div>
       	<Header title="Billing" icon="billing" />
       	<div className="container">
-          <div className="col-10">
+          <div className="">
             <h1>Billings</h1>
             <div className="row">
               <div className="col-4">
