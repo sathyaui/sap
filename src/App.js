@@ -8,6 +8,7 @@ import Purchase from "./components/pages/purchase";
 import Inventory from "./components/pages/inventory";
 import ProductListing from "./components/pages/productListing";
 import TagEntry from "./components/pages/tagEntry";
+import Login from "./components/pages/login";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
       <div className="pageContent">
         <Route location={location} path="/billings" exact component={Billing} />
         <Route location={location} path="/sales" exact component={Sales} />
+         <Route location={location} path="/Login" exact component={Login} />
         <Route location={location} path="/purchase" exact component={Purchase} />
         <Route location={location} path="/inventory" exact component={Inventory} />
         <Route location={location} path="/productlisting/:id" exact component={ProductListing} />
