@@ -21,11 +21,19 @@ export default {
 		fetchPurchaseAction:(data) =>
 			axios.get(apiUrl+'purchase').then(res => res),
 		fetchPurchaseTagAction:(data) =>
-			axios.get(apiUrl+'purchasevstag?page=0&size=10').then(res => res)
+			axios.get(apiUrl+'purchasevstag/2018-05-11/2018-05-28').then(res => res)
+	},
+	sales: {
+		createSaleAction:(data) =>
+			axios.post(apiUrl+'sale', data).then(res => res)
 	},
 	tag: {
 		createTagAction:(data) => 
 			axios.post(apiUrl+'tag', data).then(res => res),
+	},
+	tagList: {
+		fetchTagListAction:() => 
+			axios.get(apiUrl+'tag?size=1000').then(res => res),
 	},
 	tagById: {
 		fetchTagInfoAction:(id) => 

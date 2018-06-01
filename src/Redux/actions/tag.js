@@ -1,4 +1,4 @@
-import { CREATE_TAG, CREATE_TAG_ADDON, EDIT_TAG_ADDON, FETCH_TAG_DATA_BY_ID } from '../types';
+import { CREATE_TAG, CREATE_TAG_ADDON, EDIT_TAG_ADDON, FETCH_TAG_DATA_BY_ID, DELETE_TAG_DATA_BY_ID, FETCH_TAG_LIST } from '../types';
 import api from '../api';
 
 export const setTag = data => ({
@@ -34,4 +34,21 @@ export const setTagId = data => ({
 });
 
 export const getTagDataById = (id) => dispatch =>
-    api.tagById.fetchTagInfoAction(id).then(data => dispatch(setTagId(data)));    
+    api.tagById.fetchTagInfoAction(id).then(data => dispatch(setTagId(data))); 
+
+export const deleteTagId = id => ({
+	type:DELETE_TAG_DATA_BY_ID,
+	id
+});
+
+export const deleteTagAction = id => dispatch => {
+	dispatch(deleteTagId(id));
+}
+
+export const fetchTagsList = (data) => ({
+	type:FETCH_TAG_LIST,
+	data
+});
+
+export const getTagListData = () => dispatch =>
+    api.tagList.fetchTagListAction().then(data => dispatch(fetchTagsList(data)));        

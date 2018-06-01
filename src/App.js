@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { Route } from "react-router-dom";
 // Routes
+import Login from "./components/pages/login";
+import Dashboard from "./components/pages/dashboard";
 import Billing from "./components/pages/billing";
 import Sales from "./components/pages/sales";
 import Purchase from "./components/pages/purchase";
@@ -14,6 +16,8 @@ class App extends Component {
     const { location } = this.props;
     return (
       <div className="pageContent">
+        <Route location={location} path="/" exact component={Login} />
+        <Route location={location} path="/dashboard" exact component={Dashboard} />
         <Route location={location} path="/billings" exact component={Billing} />
         <Route location={location} path="/sales" exact component={Sales} />
         <Route location={location} path="/purchase" exact component={Purchase} />

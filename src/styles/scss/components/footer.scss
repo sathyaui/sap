@@ -1,3 +1,5 @@
+@import '../../../../node_modules/compass-mixins/lib/compass/css3';
+@import '../base/variable.scss';
 footer {
 	background-color: white;
 	@include border-radius(6px);

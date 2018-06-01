@@ -166,6 +166,9 @@ export default class Modal extends React.Component {
 				title="Add product"
 				modal={false}
 				open={this.state.open}
+				autoDetectWindowHeight={true}
+				autoScrollBodyContent={true}
+				repositionOnUpdate={true}
 				titleStyle={{backgroundColor:config.liteBlue}}
 				bodyStyle={{backgroundColor:config.liteBlue}}
 				onRequestClose={this.handleClose}

@@ -24,6 +24,22 @@ body {
 	line-height: 1.2;
 	color: $bodyTextColor;
 }
+a {
+	@include transition(0.3s);
+	&:hover {
+		text-decoration:none;
+	}
+}
+.clearfix {
+	&:after, &:before {
+		content:"";
+		display: block;
+		clear: both;
+	}
+}
+.centerAlign {
+	align-items: center;
+}
 img {
 	max-width: 100%;
 	vertical-align: middle;
@@ -163,4 +179,60 @@ ul, ol {
 .barcodeWrapper {
 	padding-top: 25px;
 	text-align: center;
+}
+.center-block{
+	float: none !important;
+    margin: 0 auto;
+    padding: 0;
+}
+.smallSize{
+	width:200px;
+}
+.bigButton {
+	background-color: white;
+	border:none;
+	border-radius: 6px;
+	color: $blue;
+	cursor: pointer;
+	display: block;
+	font-family: $fontFamMedium;
+	font-weight: 500;
+	margin-bottom: 20px;
+	padding: 20px;
+	font-size: 30px;
+	width: 100%;
+	text-align: left;
+	small {
+		font-size:40%;
+		display: block;
+	}
+	&:hover {
+		background-color: $blue;
+		color: white;
+	}
+}
+.menuModifier {
+	padding: 30px 0px 20px;
+	li {
+		float: left;
+		margin-right: 2%;
+		margin-bottom: 20px;
+		width: 18%;
+		a {
+			display: block;
+			@include border-radius(4px);
+			@include box-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+			background-color: white;
+			padding:80px 20px 20px;
+			img {
+				margin-bottom: 5px;
+			}
+			&:hover {
+				@include box-shadow(0px 0px 10px rgba(0, 0, 0, 0.35));
+			}
+		}
+	}
+}
+.containerRow {
+	margin-bottom: 40px;
 }

@@ -10,6 +10,8 @@ import purchaseTagList from "./reducers/purchaseTagList";
 import createTag from "./reducers/createTag";
 import tagAddon from "./reducers/tagAddon";
 import tagDataById from "./reducers/tagDataById";
+import tagDataList from "./reducers/tagDataList";
+import createSale from "./reducers/createSale";
 
 export default combineReducers({
   master,
@@ -21,5 +23,7 @@ export default combineReducers({
   purchaseTagList,
   createTag,
   tagAddon,
-  tagDataById
+  tagDataById,
+  tagDataList,
+  createSale
 });

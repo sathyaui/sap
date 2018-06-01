@@ -5,8 +5,6 @@ import { fetchPurchaseTagList } from "../../Redux/actions/purchase";
 import Header from '../common/header';
 import PurchaseList from './Inventory/List';
 
-import TextField from '../common/FormControls/textField';
-
 class Inventory extends Component {
   constructor(props) {
     super(props);
@@ -27,24 +25,32 @@ class Inventory extends Component {
     this.props.fetchPurchaseTagList();
   }
   render() {
-    const { purchaseList, dealers } = this.props;
+    const { purchaseList, dealers, products, metalRates } = this.props;
     const { tag } = this.state;
     return (
       <div>
       	<Header title="Inventory" icon="sales" />
 
-      	<div className="container">
+      	<div className="container containerRow">
         <h1>Inventory</h1>
           <div className="row">
-            <div className="col-4">
-              <TextField
-                id="tag"
-                type="text"
-                name="tag"
-                value={tag}
-                onChange={this.handleChange}
-                noLabel
-                labelName="" />
+            <div className="col-2">
+              <button className="bigButton">
+                <small>Gold</small>
+                7kg
+              </button>
+            </div>
+            <div className="col-2">
+              <button className="bigButton">
+                <small>Silver</small>
+                5kg
+              </button>
+            </div>
+            <div className="col-2">
+              <button className="bigButton">
+                <small>Diamond</small>
+                1kg
+              </button>
             </div>
           </div>
           {!isEmpty(purchaseList) && <PurchaseList data={purchaseList} dealers={dealers} />}
@@ -57,7 +63,9 @@ class Inventory extends Component {
 function mapStateToProps(state) {
   return {
     purchaseList:state.purchaseTagList.data,
+    products:state.product.productLst,
     dealers:state.dealer.dealerList,
+    metalRates:state.master
   }
 }
 

@@ -79,6 +79,9 @@ export default class Modal extends React.Component {
 				title="Tag Entry"
 				modal={false}
 				open={this.props.open}
+				autoDetectWindowHeight={true}
+				autoScrollBodyContent={true}
+				repositionOnUpdate={true}
 				titleStyle={{backgroundColor:config.liteBlue}}
 				bodyStyle={{backgroundColor:config.liteBlue}}
 				onRequestClose={this.handleClose}

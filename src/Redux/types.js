@@ -13,3 +13,6 @@ export const CREATE_TAG = 'CREATE_TAG';
 export const CREATE_TAG_ADDON = 'CREATE_TAG_ADDON';
 export const EDIT_TAG_ADDON = 'EDIT_TAG_ADDON';
 export const FETCH_TAG_DATA_BY_ID = 'FETCH_TAG_DATA_BY_ID';
+export const DELETE_TAG_DATA_BY_ID = 'DELETE_TAG_DATA_BY_ID';
+export const FETCH_TAG_LIST = 'FETCH_TAG_LIST';
+export const CREATE_SALE = 'CREATE_SALE';

@@ -3,6 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import { isEmpty, map, findIndex, isNaN, filter } from 'lodash';
 import { connect } from "react-redux";
 import Barcode from 'react-barcode';
+import PropTypes from 'prop-types';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
 import { onlyNumber, onlyFloatNumber } from '../../helpers';
 import TextField from '../../common/FormControls/textField';
@@ -46,7 +47,7 @@ class TagEntry extends React.Component {
 	componentDidMount() {
 		const { data, paramId, products, metalRates } = this.props;
 		const indData = filter(data, el => {
-			if(parseInt(el.purchaseBillNo) === parseInt(paramId)) return el;
+			if(parseInt(el.purchaseNo) === parseInt(paramId)) return el;
 		});
 		const typeName = filter(this.props.products, el => {
 			if(parseInt(el.productCode) === parseInt(indData[0].productCode)) return el;
@@ -125,9 +126,8 @@ class TagEntry extends React.Component {
 			tagAddon : this.props.tagAddonData
 		};
 		this.props.createTag(reqObj).then(res => {
-			console.log(res);
 			this.setState({
-				barCodeValue:res.data.data.identifier,
+				barCodeValue:res.data.data.tagId,
 				loading:false,
 				buttonDisabled:true
 			});
@@ -137,6 +137,10 @@ class TagEntry extends React.Component {
 		const errors = {};
 		if (!data.productName) errors.productName = "Can't be blank";
 		return errors;
+	};
+	onBack = () => {
+		window.history.back();
+		//this.context.router.history.push('/inventory');
 	};
 	render() {
 		const { productName, grossWeight, netWeight, wastageCharge, makingCharge, productType, purity, purchaseTaxPercent, barCodeValue, productCode, selectedIndex, errors, loading, buttonDisabled } = this.state;
@@ -229,14 +233,19 @@ class TagEntry extends React.Component {
 		                </div>
 	                </div>
 	                {!isEmpty(tagAddonData) && <List data={tagAddonData} editItem={this.editItem} />}
-	                <div className="row buttonListRow">
+	                {buttonDisabled ?<div className="row buttonListRow">
 	                	<div className="col-6">
-		                	<PrimaryButton label="Submit" onClick={this.onSubmit} disabled={buttonDisabled} fluid />
+		                	<PrimaryButton label="Back" onClick={this.onBack} fluid />
+		                </div>
+		            </div>:    
+		            <div className="row buttonListRow">
+	                	<div className="col-6">
+		                	<PrimaryButton label="Submit" onClick={this.onSubmit} fluid />
 		                </div>
 	                	<div className="col-6">
-		                	<PrimaryButton label="Addon" onClick={this.addonPopup} disabled={buttonDisabled} fluid />
+		                	<PrimaryButton label="Addon" onClick={this.addonPopup} fluid />
 		                </div>
-	                </div>
+	                </div>}
                 </div>
                 <div className="col-4">
 	                {loading && <RefreshIndicator
@@ -258,6 +267,10 @@ class TagEntry extends React.Component {
 		);
 	}
 }
+
+TagEntry.contextTypes = {
+  router: PropTypes.object.isRequired,
+};
 
 function mapStateToProps(state) {
   return {

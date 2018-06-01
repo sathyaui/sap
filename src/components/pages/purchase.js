@@ -103,6 +103,9 @@ class Purchase extends Component {
       selectedIndex:index
     });
   };
+  componentWillUnmount() {
+    this.props.addPurchaseAction([]);
+  }
   render() {
     const { dealerName, billRefNo, billDate, errors, selectedIndex } = this.state;
     const { purchaseList, productList, dealers, metalRates } = this.props;
@@ -113,7 +116,7 @@ class Purchase extends Component {
     return (
       <div>
       	<Header title="Purchase" icon="billing" />
-      	<div className="container">
+      	<div className="container containerRow">
           <div className="col-10">
             <h1>Purchase</h1>
             <div className="row">

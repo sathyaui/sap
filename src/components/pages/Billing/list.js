@@ -8,6 +8,9 @@ class List extends Component {
 		});
 		return typeName;
 	}
+	deleteRow(id) {
+		this.props.deleteRow(id);
+	}
 	render() {
 		const { data } = this.props;
 		return <table className="table-list purchase-list">
@@ -19,29 +22,35 @@ class List extends Component {
 					<th style={{"textAlign":"right"}}>Making Charge</th>
 					<th style={{"textAlign":"right"}}>Wastage</th>
 					<th style={{"textAlign":"right"}}>Price</th>
+					<th style={{"textAlign":"right"}}></th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>	
-						{this.getTypeName(data.productCode)}
-					</td>
-					<td style={{"textAlign":"right"}}>	
-						{data.grossWeight}
-					</td>
-					<td style={{"textAlign":"right"}}>	
-						{data.purchaseRate}
-					</td>
-					<td style={{"textAlign":"right"}}>	
-						{data.makingCharge}
-					</td>
-					<td style={{"textAlign":"right"}}>	
-						{data.wastage}
-					</td>	
-					<td style={{"textAlign":"right"}}>	
-						{data.purchaseRate}
-					</td>
-				</tr>
+				{map(data, (el, i) => {
+					return <tr key={i}>
+						<td>	
+							{this.getTypeName(el.data.productCode)}
+						</td>
+						<td style={{"textAlign":"right"}}>	
+							{el.data.grossWeight}
+						</td>
+						<td style={{"textAlign":"right"}}>	
+							{el.data.purchaseRate}
+						</td>
+						<td style={{"textAlign":"right"}}>	
+							{el.data.makingCharge}
+						</td>
+						<td style={{"textAlign":"right"}}>	
+							{el.data.wastage}
+						</td>	
+						<td style={{"textAlign":"right"}}>	
+							{el.data.purchaseRate}
+						</td>
+						<td style={{"textAlign":"right"}}>
+							<a href="javascript:void(0)" onClick={this.deleteRow.bind(this, i)}>Remove</a>
+						</td>
+					</tr>
+				})}
 			</tbody>
 		</table>
 	}

@@ -15,8 +15,12 @@ export default class ProductListing extends React.Component {
 	openPopup = () => {
 		this.props.editItem();
 	};
-	routeChange(id) {
-		this.context.router.history.push('/tagentry/'+id);
+	routeChange(id, isTagged) {
+		if(!isTagged) {
+			this.context.router.history.push('/tagentry/'+id);
+		} else {
+			this.props.printTag(id);
+		}
 	}
 	render() {
 		const { data, paramId, products } = this.props;
@@ -31,23 +35,30 @@ export default class ProductListing extends React.Component {
 						<th>Gross Weight</th>
 						<th>Net Weight</th>
 						<th>Piece</th>
+						<th>Tagged</th>
 					</tr>
 				</thead>
 				<tbody>
-					{map(indData, (el, i) => <tr key={i} className="hoverRow" key={i} onClick={this.routeChange.bind(this, el.purchaseBillNo)}>
-						<td onClick={this.openPopup}>
-							{this.getTypeName(parseInt(el.productCode))}
-						</td>
-						<td>	
-							{el.grossWt}
-						</td>
-						<td>	
-							{el.netWt}
-						</td>
-						<td>	
-							{el.piece}
-						</td>
-					</tr>)}
+					{map(indData, (el, i) => {
+						const isTagged = el.grossWt === el.tgrossWt;
+						return <tr key={i} className="hoverRow" key={i} onClick={this.routeChange.bind(this, el.purchaseNo, isTagged, el)}>
+							<td onClick={this.openPopup}>
+								{this.getTypeName(parseInt(el.productCode))}
+							</td>
+							<td>	
+								{el.grossWt}
+							</td>
+							<td>	
+								{el.netWt}
+							</td>
+							<td>	
+								{el.piece}
+							</td>
+							<td>	
+								{isTagged?"YES":"NO"}
+							</td>
+						</tr>
+					})}
 				</tbody>
 			</table>
 		);

@@ -17,6 +17,13 @@ export default class PurchaseList extends React.Component {
 	routeChange(id) {
 		this.context.router.history.push('/productlisting/'+id);
 	}
+	getTotalVal = (arr, type) => {
+		let total = 0;
+		map(arr, el => {
+			total += parseFloat(el[type]);
+		});
+		return total;
+	};
 	render() {
 		const { data } = this.props;
 		const grouppedData = groupBy(data, 'purchaseBillNo');
@@ -42,10 +49,10 @@ export default class PurchaseList extends React.Component {
 						{Moment(grouppedData[el][0].purchaseDate).format('DD/MM/YYYY')}
 					</td>
 					<td>	
-						{sumBy(grouppedData[el], 'grossWt')}
+						{this.getTotalVal(grouppedData[el], 'grossWt')}
 					</td>
 					<td>	
-						{sumBy(grouppedData[el], 'netWt')}
+						{this.getTotalVal(grouppedData[el], 'netWt')}
 					</td>
 				</tr>)}
 			</tbody>

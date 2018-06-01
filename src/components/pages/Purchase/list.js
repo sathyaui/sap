@@ -11,11 +11,11 @@ class List extends Component {
 			<thead>
 				<tr>
 					<th>Type</th>
-					<th>Piece</th>
-					<th>Gross Weight</th>
-					<th>Making Charge</th>
-					<th>Wastage</th>
-					<th>New Weight</th>
+					<th style={{"textAlign":"right"}}>Piece</th>
+					<th style={{"textAlign":"right"}}>Gross Weight</th>
+					<th style={{"textAlign":"right"}}>Making Charge</th>
+					<th style={{"textAlign":"right"}}>Wastage</th>
+					<th style={{"textAlign":"right"}}>New Weight</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -24,19 +24,19 @@ class List extends Component {
 					<td>
 						{el.type}
 					</td>
-					<td>	
+					<td style={{"textAlign":"right"}}>	
 						{el.piece}
 					</td>
-					<td>	
+					<td style={{"textAlign":"right"}}>	
 						{el.grossWeight}
 					</td>
-					<td>	
+					<td style={{"textAlign":"right"}}>	
 						{el.makingCharge}
 					</td>
-					<td>	
+					<td style={{"textAlign":"right"}}>	
 						{el.wastage}
 					</td>	
-					<td>	
+					<td style={{"textAlign":"right"}}>	
 						{el.netWeight}
 					</td>
 					<td className="text-right">

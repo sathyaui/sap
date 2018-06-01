@@ -14,12 +14,13 @@ export default class DialogExampleSimple extends React.Component {
 	handleClose = () => {
 		this.setState({open: false});
 	};
-
   render() {
     const actions = [
    		<div className="closeicon" onClick={this.handleClose}><i className="la la-remove"></i></div>
     ];
     const { onChange, title, label, children, backgroundColor, disabled, customContentStyle} = this.props;
+    const childrenWithProps = React.Children.map(children, child =>
+      React.cloneElement(child, { handleClose: this.handleClose }));
     return (
       <div>
         <RaisedButton label={label} style={{ backgroundColor }}  disabled={disabled} className="button" onClick={this.handleOpen} />
@@ -33,10 +34,10 @@ export default class DialogExampleSimple extends React.Component {
     			overlayStyle={{backgroundColor: 'rgba(76, 185, 236, 0.6)'}}
           contentStyle={{width: 440,}}
     			style={{ padding: '0px 0px 0px 0px' }}
-    			open={this.state.open}
+    			open={this.props.status === "submitted"?false:this.state.open}
     			onRequestClose={onChange}
         >
-        {children}
+          {childrenWithProps}
         </Dialog>
       </div>
     );
