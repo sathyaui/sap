@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { isEmpty } from 'lodash';
+import { isEmpty, map } from 'lodash';
 import { fetchPurchaseTagList } from "../../Redux/actions/purchase";
 import Header from '../common/header';
+import DatePicker from '../common/DatePicker';
 import PurchaseList from './Inventory/List';
 
 class Inventory extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tag:""
+      tag:"",
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -22,7 +23,7 @@ class Inventory extends Component {
     console.log('Submit')
   }
   componentDidMount() {
-    this.props.fetchPurchaseTagList();
+    this.props.fetchPurchaseTagList()
   }
   render() {
     const { purchaseList, dealers, products, metalRates } = this.props;
@@ -51,6 +52,9 @@ class Inventory extends Component {
                 <small>Diamond</small>
                 1kg
               </button>
+            </div>
+            <div className="col-6">
+              <DatePicker  />
             </div>
           </div>
           {!isEmpty(purchaseList) && <PurchaseList data={purchaseList} dealers={dealers} />}

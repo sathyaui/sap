@@ -1,3 +1,4 @@
+export const GET_LOGIN = 'GET_LOGIN';
 export const FETCH_MASTER_DATA = 'FETCH_MASTER_DATA';
 export const TOGGLE_MENU = 'TOGGLE_MENU';
 export const FETCH_PRODUCT = 'FETCH_PRODUCT';

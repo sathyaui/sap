@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import { loginUser } from '../../Redux/actions/login';
 import TextField from '../common/FormControls/textField';
 import PrimaryButton from '../common/FormControls/primaryButton';
 
@@ -42,7 +45,19 @@ class Login extends Component {
     e.preventDefault();
     const errors = this.validate(this.state);
     this.setState({ errors });
-    this.context.router.history.push('/dashboard');
+    if(Object.keys(errors).length === 0) {
+      this.context.router.history.push('/dashboard');
+      localStorage.setItem('basicAuth', btoa('03c6e5f6-7b42-469a-a6aa-62ce43cb224a:2'))
+      // const reqObject = {
+      //   loginId:this.state.username,
+      //   loginPwd:this.state.password,
+      //   loginDeviceId:'Test123'
+      // };
+      // console.log(reqObject)
+      // this.props.loginUser(reqObject).then(res => {
+      //   this.context.router.history.push('/dashboard');
+      // });
+    }
   }
   render() {
     const {username, password, errors} = this.state
@@ -84,4 +99,4 @@ Login.contextTypes = {
   router: PropTypes.object.isRequired,
 };
 
-export default Login;
+export default connect(null, {loginUser})(Login);
