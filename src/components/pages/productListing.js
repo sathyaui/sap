@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Dialog from 'material-ui/Dialog';
 import Barcode from 'react-barcode';
 import PrimaryButton from '../common/FormControls/primaryButton';
+import { getParameterByName } from '../helpers';
 import { fetchPurchaseTagList } from "../../Redux/actions/purchase";
 import { getTagListData } from "../../Redux/actions/tag";
 import Header from '../common/header';
@@ -17,7 +18,7 @@ class ProductListing extends Component {
     dialogueOpen:false,
   };
   componentDidMount() {
-    this.props.fetchPurchaseTagList();
+    this.props.fetchPurchaseTagList(getParameterByName('startDate'), getParameterByName('endDate'));
     this.props.getTagListData();
   }
   requestClose = () => {
@@ -58,7 +59,14 @@ class ProductListing extends Component {
       	<Header title="Inventory" icon="sales" />
       	<div className="container containerRow">
           <h1>Products</h1>
-          {!isEmpty(purchaseList) && <List data={purchaseList} products={products} dealers={dealers} paramId={this.props.match.params.id} editItem={this.editItem} printTag={this.printTag} />}
+          {!isEmpty(purchaseList) && <List 
+            data={purchaseList} 
+            products={products} 
+            dealers={dealers} 
+            paramId={this.props.match.params.id} 
+            editItem={this.editItem} 
+            printTag={this.printTag}
+            tagList={this.props.tagList} />}
       	</div>
         <Dialog
           title="Barcode"
@@ -69,7 +77,9 @@ class ProductListing extends Component {
         >
           <div className="barcodeWrapper">
             {tagId !== 0 && <div className="buttonListRow" id="printArea">
-              <Barcode value={tagId} option={{displayValue:false}} />
+              <Barcode 
+                value={tagId} 
+                option={{displayValue:false}} />
             </div>}
             <PrimaryButton label="Print" onClick={this.printContent} />
           </div>

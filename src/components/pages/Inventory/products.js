@@ -15,7 +15,8 @@ export default class ProductListing extends React.Component {
 	openPopup = () => {
 		this.props.editItem();
 	};
-	routeChange(id, isTagged) {
+	routeChange(id, isTagged, isSold) {
+		if(isSold) return false;
 		if(!isTagged) {
 			this.context.router.history.push('/tagentry/'+id);
 		} else {
@@ -23,10 +24,11 @@ export default class ProductListing extends React.Component {
 		}
 	}
 	render() {
-		const { data, paramId, products } = this.props;
+		const { data, paramId, products, tagList } = this.props;
 		const indData = filter(data, el => {
 			if(parseInt(el.purchaseBillNo) === parseInt(paramId)) return el;
 		});
+		if(tagList === undefined) return false;
 		return (
 			<table className="table-list purchase-list">
 				<thead>
@@ -36,12 +38,15 @@ export default class ProductListing extends React.Component {
 						<th>Net Weight</th>
 						<th>Piece</th>
 						<th>Tagged</th>
+						<th>Status</th>
 					</tr>
 				</thead>
 				<tbody>
 					{map(indData, (el, i) => {
 						const isTagged = el.grossWt === el.tgrossWt;
-						return <tr key={i} className="hoverRow" key={i} onClick={this.routeChange.bind(this, el.purchaseNo, isTagged, el)}>
+						const tagData = filter(tagList.content, elm => parseInt(elm.purchaseNo) === parseInt(el.purchaseNo));
+						const isSold = tagData[0].tagMinusDate !== null;
+						return <tr key={i} className={isSold?"":"hoverRow"} key={i} onClick={this.routeChange.bind(this, el.purchaseNo, isTagged, isSold, el)}>
 							<td onClick={this.openPopup}>
 								{this.getTypeName(parseInt(el.productCode))}
 							</td>
@@ -56,6 +61,9 @@ export default class ProductListing extends React.Component {
 							</td>
 							<td>	
 								{isTagged?"YES":"NO"}
+							</td>
+							<td>	
+								{isSold?"SOLD":"-"}
 							</td>
 						</tr>
 					})}

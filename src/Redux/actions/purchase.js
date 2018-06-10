@@ -43,5 +43,5 @@ export const setPurchaseTagList = data => ({
 	data
 });
 
-export const fetchPurchaseTagList = () => dispatch =>
-    api.purchase.fetchPurchaseTagAction().then(data => dispatch(setPurchaseTagList(data)));        
+export const fetchPurchaseTagList = (startDate, endDate) => dispatch =>
+    api.purchase.fetchPurchaseTagAction(startDate, endDate).then(data => dispatch(setPurchaseTagList(data)));        

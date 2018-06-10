@@ -15,7 +15,8 @@ export default class PurchaseList extends React.Component {
 		return dlrName;
 	}
 	routeChange(id) {
-		this.context.router.history.push('/productlisting/'+id);
+		const { startDate, endDate } = this.props;
+		this.context.router.history.push('/productlisting/'+id+'?startDate='+startDate+'&endDate='+endDate);
 	}
 	getTotalVal = (arr, type) => {
 		let total = 0;

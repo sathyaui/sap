@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import moment from 'moment';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import { fetchPurchaseTagList } from "../../../Redux/actions/purchase";
@@ -13,23 +14,26 @@ class DateRangePickerController extends Component {
 			endDate: null,
 			focusedInput: null,
 		};
-		this.onDatesChange = this.onDatesChange.bind(this)
 	}
-	onDatesChange(startDate){
-		alert(startDate)
-	}
-	componentDidMount() {
-		console.log(this.props.fetchPurchaseTagList());
-  	}
+	getRangedDate = (range) => {
+		if(range.endDate === null) {
+			this.props.getDateVal(moment(range.startDate).format('YYYY-MM-DD'), moment(range.startDate).format('YYYY-MM-DD'));
+		} else {
+			this.props.getDateVal(moment(range.startDate).format('YYYY-MM-DD'), moment(range.endDate).format('YYYY-MM-DD'));
+		}
+		this.setState({ startDate:range.startDate, endDate:range.endDate })
+	};
 
 	render() {
 		return (
 			<DateRangePicker
 				startDateId="startDate"
 				endDateId="endDate"
+				isOutsideRange={() => false}
+				small
 				startDate={this.state.startDate}
 				endDate={this.state.endDate}
-				onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate })}}
+				onDatesChange={this.getRangedDate}
 				focusedInput={this.state.focusedInput}
 				onFocusChange={(focusedInput) => { this.setState({ focusedInput })}}
 				/>

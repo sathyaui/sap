@@ -5,7 +5,7 @@ const apiUrl = 'http://35.185.32.53:8082/JPOSAPI/api/v1.0/';
 export default {
 	master:{
 		fetchMasterAction:() => 
-			axios.get(apiUrl+'metalrate', {headers:{Authorization:'Basic '}}).then(res => res)
+			axios.get(apiUrl+'metalrate').then(res => res)
 	},
 	login:{
 		loginAction:(data) =>
@@ -24,16 +24,9 @@ export default {
 			axios.post(apiUrl+'purchase', data).then(res => res),
 		fetchPurchaseAction:(data) =>
 			axios.get(apiUrl+'purchase').then(res => res),
-
 		fetchPurchaseTagAction:(startDate, endDate) =>
-			axios.get(apiUrl+"purchasevstag/"+startDate+"/"+endDate).then(res => res)
-		},
-		// fetchPurchaseTagAction:(startDate, endDate) =>
-		// 	axios.get(`${apiUrl}+purchasevstag/${startDate}/${endDate}'`).then(res => res)
-		// },
-		// fetchPurchaseTagAction:(data) =>
-		// 	axios.get(apiUrl+'purchasevstag/2018-05-11/2018-05-28').then(res => res)
-		// },
+			axios.get(apiUrl+'purchasevstag/'+startDate+'/'+endDate).then(res => res)
+	},
 	sales: {
 		createSaleAction:(data) =>
 			axios.post(apiUrl+'sale', data).then(res => res)

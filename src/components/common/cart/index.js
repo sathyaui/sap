@@ -10,6 +10,7 @@ class Cart extends Component {
   		this.props.handleCashSubmit(paidAmount);
   	};
   	render() {
+  		const finalAmount = this.props.total+((this.props.total*3)/100);
 	    return (
 	      	<div className="cart-page">
 				<div className="cart-page-content">
@@ -24,12 +25,12 @@ class Cart extends Component {
 						</div>
 						<div className="cart-page-total">
 							<span>net total</span>
-							<strong>{this.props.total+((this.props.total*3)/100)}</strong>
+							<strong>{finalAmount}</strong>
 						</div>
 					</div>
 					<div className="cart-page-button">
-						<RaisedButton backgroundColor="#4cb9ec" label="cash"><Cash total={this.props.total} handleCashSubmit={this.handleCashSubmit} /></RaisedButton>
-						<RaisedButton backgroundColor="#816dcc" label="card"><Savings total={this.props.total} /></RaisedButton>
+						<RaisedButton backgroundColor="#4cb9ec" label="cash"><Cash total={finalAmount} handleCashSubmit={this.handleCashSubmit} /></RaisedButton>
+						<RaisedButton backgroundColor="#816dcc" label="card"><Savings total={finalAmount} /></RaisedButton>
 						<RaisedButton backgroundColor="#816dcc" label="savings" disabled={true}></RaisedButton>
 					</div>
 				</div>

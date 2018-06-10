@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { isEmpty, map } from 'lodash';
 import Dialog from 'material-ui/Dialog';
+import axios from 'axios';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import { getTagDataById, deleteTagAction } from "../../Redux/actions/tag";
 import { createSale } from "../../Redux/actions/sale";
 
+import { grossWastageCalc } from '../helpers';
+
 import Header from '../common/header';
-import Table from '../common/table';
-import Total from '../common/table';
 import Cart from '../common/cart';
 
 import TextField from '../common/FormControls/textField';
@@ -46,6 +47,9 @@ class Billing extends Component {
     const errors = this.validate(this.state);
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
+      this.setState({
+        tag:""
+      })
       this.props.getTagDataById(this.state.tag).then(res => {
         this.setState(prevState => ({
           tagData:prevState.tagData.concat(res.data)
@@ -103,7 +107,7 @@ class Billing extends Component {
     let subTotal = 0;
     if(!isEmpty(tagData)) {
       map(tagData, el => {
-        subTotal += parseFloat(el.data.purchaseRate);
+        subTotal += grossWastageCalc(el.data, el.data.purchaseRate);
       });
     }
     const actions = [
@@ -122,7 +126,7 @@ class Billing extends Component {
     return (
       <div>
       	<Header title="Billing" icon="billing" />
-      	<div className="container">
+      	<div className="container containerRow">
           <div className="">
             <h1>Billings</h1>
             <div className="row">

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { map } from 'lodash';
 
+import { grossWastageCalc } from '../../helpers';
+
 class List extends Component {
 	getTypeName(code) {
 		let typeName = map(this.props.products, el => {
@@ -44,7 +46,7 @@ class List extends Component {
 							{el.data.wastage}
 						</td>	
 						<td style={{"textAlign":"right"}}>	
-							{el.data.purchaseRate}
+							{grossWastageCalc(el.data, el.data.purchaseRate)}
 						</td>
 						<td style={{"textAlign":"right"}}>
 							<a href="javascript:void(0)" onClick={this.deleteRow.bind(this, i)}>Remove</a>

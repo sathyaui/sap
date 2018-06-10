@@ -1412,7 +1412,7 @@ footer {
 
 .cartOverlay {
   font-family: "nunitobold", sans-serif;
-  padding: 60px 100px; }
+  padding: 50px 40px; }
   .cartOverlay-content {
     padding-bottom: 20px; }
     .cartOverlay-content h2 {
@@ -1796,8 +1796,10 @@ ul, ol {
   text-align: right; }
 
 .purchase-list {
-  padding: 20px 0px;
-  margin-bottom: 30px; }
+  padding: 20px 0px; }
+
+.containerRow {
+  padding-bottom: 30px; }
 
 .linkButton {
   text-decoration: underline;
@@ -1896,5 +1898,8 @@ ul, ol {
         -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35); }
 
-.containerRow {
-  margin-bottom: 40px; }
+.filterRow {
+  padding-top: 45px; }
+
+.DateInput_input {
+  padding: 13px 10px !important; }

@@ -7,5 +7,5 @@ export const setSale = data => ({
 });
 
 export const createSale = (data) => dispatch =>
-    api.sales.createSaleAction(data).then(data => dispatch(setSale(data)));
+    api.sales.createSaleAction(data).then(res => dispatch(setSale(res)));
        

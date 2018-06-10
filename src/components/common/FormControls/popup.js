@@ -28,11 +28,14 @@ export default class DialogExampleSimple extends React.Component {
     			title={title}
     			actions={actions}
     			modal={false}
+          autoDetectWindowHeight={true}
+          autoScrollBodyContent={true}
+          repositionOnUpdate={true}
           titleStyle={{ backgroundColor:'#f5f6fa'}}
           actionsContainerStyle={{backgroundColor:'#f5f6fa', borderRadius:'10px'}}
           bodyStyle={{ backgroundColor: '#f5f6fa', padding:'0'}}
     			overlayStyle={{backgroundColor: 'rgba(76, 185, 236, 0.6)'}}
-          contentStyle={{width: 440,}}
+          contentStyle={{width: 600,}}
     			style={{ padding: '0px 0px 0px 0px' }}
     			open={this.props.status === "submitted"?false:this.state.open}
     			onRequestClose={onChange}

@@ -140,7 +140,9 @@ ul, ol {
 }
 .purchase-list {
 	padding: 20px 0px;
-	margin-bottom: 30px;
+}
+.containerRow {
+	padding-bottom: 30px;
 }
 .linkButton {
 	text-decoration: underline;
@@ -233,6 +235,9 @@ ul, ol {
 		}
 	}
 }
-.containerRow {
-	margin-bottom: 40px;
+.filterRow {
+	padding-top: 45px;
+}
+.DateInput_input {
+    padding: 13px 10px !important;
 }
